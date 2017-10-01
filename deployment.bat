@@ -1,0 +1,1 @@
+C:\Qt\Qt5.9.1\5.9.1\msvc2015_64\bin\windeployqt.exe Build\release

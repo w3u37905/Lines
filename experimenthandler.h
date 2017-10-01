@@ -16,6 +16,7 @@ public:
 private slots:
     void onTrialTimeout();
     void onShowAnswerTimeout();
+    void onShowBlackScreenTimeout();
 
     void onLeftBtnPushed();
     void onRightBtnPushed();
@@ -40,6 +41,7 @@ private:
     Experiment       *m_experiment;
     QTimer           *m_trialTimer;
     QTimer           *m_showAnswerTimer;
+    QTimer           *m_showBlackScreenTimer;
 
     qreal            m_pixelsPerMeter;
     uint             m_screenHeight;

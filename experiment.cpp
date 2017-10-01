@@ -20,6 +20,7 @@ Experiment::Experiment() :
     m_numberOfTrials(10),
     m_maxAnswerTime(10),
     m_showAnswer(0.5),
+    m_showBlackScreen(0.5),
     m_dataPath(""),
     m_taskName("Lines")
 {

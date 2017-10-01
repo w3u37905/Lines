@@ -73,6 +73,15 @@ void FullScreenWidget::paintEvent(QPaintEvent *e)
      update();
  }
 
+ void FullScreenWidget::setLinesBlack()
+ {
+     qDebug() << "setLinesBlack";
+
+     m_leftPen.setColor(Qt::black);
+     m_rightPen.setColor(Qt::black);
+     update();
+ }
+
  void FullScreenWidget::setLinesBlue()
  {
      qDebug() << "setLinesBlue";

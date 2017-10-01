@@ -29,6 +29,7 @@ public:
     uint           getNumberOfTrials    (){ return m_numberOfTrials;     };
     qreal          getMaxAnswerTime     (){ return m_maxAnswerTime;      };
     qreal          getShowAnswer        (){ return m_showAnswer;         };
+    qreal          getShowBlackScreen   (){ return m_showBlackScreen;    };
     QString        getDataPath          (){ return m_dataPath;           };
     QString        getTaskName          (){ return m_taskName;           };
     QVector<Trial>&getTrials            (){ return m_trials;             };
@@ -50,6 +51,7 @@ public:
     void setNumberOfTrials     (uint    numberOfTrials       ){m_numberOfTrials     = numberOfTrials;       };
     void setMaxAnswerTime      (qreal   maxAnswerTime        ){m_maxAnswerTime      = maxAnswerTime;        };
     void setShowAnswer         (qreal   showAnswer           ){m_showAnswer         = showAnswer;           };
+    void setShowBlackScreen    (qreal   showBlackScreen      ){m_showBlackScreen    = showBlackScreen;      };
     void setDataPath           (QString dataPath             ){m_dataPath           = dataPath;             };
     void setTaskName           (QString taskName             ){m_taskName           = taskName;             };
     void setTrials             (QVector<Trial> &trials){m_trials = trials;}
@@ -79,6 +81,7 @@ private:
     uint            m_numberOfTrials;
     qreal           m_maxAnswerTime;
     qreal           m_showAnswer;
+    qreal           m_showBlackScreen;
     QString         m_dataPath;
     QString         m_taskName;
     QVector<Trial>  m_trials;

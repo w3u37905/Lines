@@ -47,8 +47,10 @@ private:
         NUMBEROFTRIALS,
         MAXANSWERTIME,
         SHOWANSWER,
+        SHOWBLACKSCREEN,
         DATAPATH,
-        TASKNAME
+        TASKNAME,
+        NUMOFCOL
     };
 
 

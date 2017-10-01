@@ -10,7 +10,7 @@ SetupDialog::SetupDialog(QWidget *parent) :
     m_experiment = Experiment::getInstance();
     m_table = ui->tableWidget;
 
-    m_table->setRowCount(16);
+    m_table->setRowCount(NUMOFCOL);
     m_table->setColumnCount(2);
 
     m_table->setHorizontalHeaderLabels({"Key","Value"});
@@ -39,6 +39,7 @@ SetupDialog::SetupDialog(QWidget *parent) :
     m_table->setItem(NUMBEROFTRIALS    , 0, new  QTableWidgetItem("numberOfTrials"));
     m_table->setItem(MAXANSWERTIME     , 0, new  QTableWidgetItem("maxAnswerTime (sec)"));
     m_table->setItem(SHOWANSWER        , 0, new  QTableWidgetItem("showAnswer (sec)"));
+    m_table->setItem(SHOWBLACKSCREEN   , 0, new  QTableWidgetItem("showBlackScreen (sec)"));
     m_table->setItem(DATAPATH          , 0, new  QTableWidgetItem("dataPath"));
     m_table->setItem(TASKNAME          , 0, new  QTableWidgetItem("taskName"));
 
@@ -56,6 +57,7 @@ SetupDialog::SetupDialog(QWidget *parent) :
     m_table->setItem(NUMBEROFTRIALS    , 1, new  QTableWidgetItem(""));
     m_table->setItem(MAXANSWERTIME     , 1, new  QTableWidgetItem(""));
     m_table->setItem(SHOWANSWER        , 1, new  QTableWidgetItem(""));
+    m_table->setItem(SHOWBLACKSCREEN   , 1, new  QTableWidgetItem(""));
     m_table->setItem(DATAPATH          , 1, new  QTableWidgetItem(""));
     m_table->setItem(TASKNAME          , 1, new  QTableWidgetItem(""));
 
@@ -80,6 +82,7 @@ void SetupDialog::setupValues()
     m_table->item(NUMBEROFTRIALS    ,1)->setText(QString::number(m_experiment->getNumberOfTrials()));
     m_table->item(MAXANSWERTIME     ,1)->setText(QString::number(m_experiment->getMaxAnswerTime()));
     m_table->item(SHOWANSWER        ,1)->setText(QString::number(m_experiment->getShowAnswer()));
+    m_table->item(SHOWBLACKSCREEN   ,1)->setText(QString::number(m_experiment->getShowBlackScreen()));
     m_table->item(DATAPATH          ,1)->setText(m_experiment->getDataPath());
     m_table->item(TASKNAME          ,1)->setText(m_experiment->getTaskName());
 }
@@ -111,6 +114,7 @@ void SetupDialog::saveValues()
     m_experiment->setNumberOfTrials(m_table->item(NUMBEROFTRIALS,1)->text().toUInt());
     m_experiment->setMaxAnswerTime(m_table->item(MAXANSWERTIME,1)->text().toDouble());
     m_experiment->setShowAnswer(m_table->item(SHOWANSWER,1)->text().toDouble());
+    m_experiment->setShowBlackScreen(m_table->item(SHOWBLACKSCREEN,1)->text().toDouble());
     m_experiment->setDataPath(m_table->item(DATAPATH,1)->text());
     m_experiment->setTaskName(m_table->item(TASKNAME,1)->text());
 }

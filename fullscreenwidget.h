@@ -25,6 +25,7 @@ public:
     void setLinesWhite();
     void setLinesBlue();
     void setLinesRed();
+    void setLinesBlack();
     void setLeftLineBlue();
     void setRightLineBlue();
 

@@ -33,8 +33,8 @@ ExperimentHandler::ExperimentHandler(FullScreenWidget *screen,QObject *parent) :
 
 void ExperimentHandler::onShowAnswerTimeout()
 {
-    m_runningTrial++;
-    runNextTrial();
+    m_screen->setLinesBlack();
+    m_showBlackScreenTimer->start((int)(m_experiment->getShowBlackScreen()*SEC));
 }
 
 
@@ -79,10 +79,13 @@ void ExperimentHandler::setUpTimers()
 {
     m_trialTimer = new QTimer(this);
     m_showAnswerTimer = new QTimer(this);
+    m_showBlackScreenTimer = new QTimer(this);
     m_trialTimer->setSingleShot(true);
     m_showAnswerTimer->setSingleShot(true);
+    m_showBlackScreenTimer->setSingleShot(true);
     connect(m_trialTimer, SIGNAL(timeout()),this, SLOT(onTrialTimeout()));
     connect(m_showAnswerTimer, SIGNAL(timeout()),this, SLOT(onShowAnswerTimeout()));
+    connect(m_showBlackScreenTimer, SIGNAL(timeout()),this, SLOT(onShowBlackScreenTimeout()));
 }
 
 
@@ -213,6 +216,12 @@ void ExperimentHandler::onTrialTimeout()
 
     m_screen->setLinesRed();
     m_showAnswerTimer->start((int)(m_experiment->getShowAnswer()*SEC));
+}
+
+void ExperimentHandler::onShowBlackScreenTimeout()
+{
+    m_runningTrial++;
+    runNextTrial();
 }
 
 void ExperimentHandler::trialResults(LongerLineAnswer_T  answer)

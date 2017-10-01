@@ -98,6 +98,7 @@ void MainWindow::saveSettings()
     settings.setValue("numberOfTrials", m_experiment->getNumberOfTrials());
     settings.setValue("maxAnswerTime", m_experiment->getMaxAnswerTime());
     settings.setValue("showAnswer", m_experiment->getShowAnswer());
+    settings.setValue("showBlackScreen", m_experiment->getShowBlackScreen());
     settings.setValue("dataPath", m_experiment->getDataPath());
     settings.setValue("taskName", m_experiment->getTaskName());
 
@@ -124,6 +125,7 @@ void MainWindow::loadSettings()
     m_experiment->setNumberOfTrials(settings.value("numberOfTrials", "").toUInt());
     m_experiment->setMaxAnswerTime(settings.value("maxAnswerTime", "").toDouble());
     m_experiment->setShowAnswer(settings.value("showAnswer", "").toDouble());
+    m_experiment->setShowBlackScreen(settings.value("showBlackScreen", "").toDouble());
     m_experiment->setDataPath(settings.value("dataPath", "").toString());
     m_experiment->setTaskName(settings.value("taskName", "").toString());
 
